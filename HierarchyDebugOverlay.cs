@@ -22,8 +22,8 @@ public static class HierarchyDebugOverlay
         {
             if (!debugMode) return;
 
-            // Draw a small label or icon next to each hierarchy item
-            GUI.Label(new Rect(selectionRect.xMax - 50, selectionRect.y, 50, selectionRect.height), "DEBUG!");
+            // Draw label or icon next to each hierarchy item
+            GUI.Label(new Rect(selectionRect.xMax - 110, selectionRect.y, 150, selectionRect.height), "INSPECTOR DEBUG!");
         }
     
 }

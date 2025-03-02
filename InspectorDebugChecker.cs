@@ -19,10 +19,11 @@ public static class InspectorDebugChecker
 
     private static void CheckInspectorMode()
     {
-        if (IsInspectorInDebugMode())
-        {
-            Debug.LogWarning("Inspector is in Debug Mode! Switch back to Normal Mode.");
-        }
+        //ALERT: Many, many logs, but useful
+        //if (IsInspectorInDebugMode())
+        //{
+        //    Debug.LogWarning("Inspector is in Debug Mode! Switch back to Normal Mode.");
+        //}
         isDebugInspector = IsInspectorInDebugMode();
     }
 
@@ -35,10 +36,10 @@ public static class InspectorDebugChecker
             return false;
         }
 
-        // Get all properties with both NonPublic + Public + Instance
+        //NOTE: Get all properties with both NonPublic + Public + Instance 
         var allProperties = inspectorType.GetProperties(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
 
-        // Find the property named "inspectorMode"
+        //NOTE: Find  "inspectorMode" property that's so impossible for me to get
         var modeProperty = allProperties.FirstOrDefault(p => p.Name == "inspectorMode");
         if (modeProperty == null)
         {
@@ -61,7 +62,7 @@ public static class InspectorDebugChecker
 
             //Debug.Log("Inspector Mode Raw Value: " + modeValue + " (Type: " + modeValue.GetType().Name + ")");
 
-            // Check if the value is an InspectorMode enum
+            // Check if the value is an InspectorMode 
             if (modeValue is InspectorMode mode)
             {
                 //Debug.Log("Inspector Mode Detected: " + mode);
